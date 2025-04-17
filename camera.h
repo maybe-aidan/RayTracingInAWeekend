@@ -4,6 +4,8 @@
 #include "hittable.h"
 #include "material.h"
 
+#include <chrono>
+
 class camera {
 public:
 	double aspect_ratio   = 1.0; // W / H
@@ -21,12 +23,19 @@ public:
 
 
 	void render(const hittable& world) {
+		auto start = std::chrono::high_resolution_clock::now();
+
 		initialize();
 		std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 
 		for (int j = 0; j < image_height; j++) {
 			int percent = ((j * 1.0) / image_height) * 100;
-			std::clog << "\rScanlines remaining: " << (image_height - j) << ' ' << percent << "% complete" << std::flush;
+			std::ostringstream oss;
+			oss << "\rScanlines remaining: " << (image_height - j)
+				<< ", " << percent << "% complete";
+			std::string output = oss.str();
+			output.resize(80, ' ');
+			std::clog << output << std::flush;
 			for (int i = 0; i < image_width; i++) {
 				color pixel_color(0, 0, 0);
 				for (int sample = 0; sample < samples_per_pixel; sample++) {
@@ -37,7 +46,17 @@ public:
 			}
 		}
 
-		std::clog << "\rDone.				\n";
+		auto end = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+
+		std::ostringstream oss;
+		oss << "\rFinished Rendering in " << duration.count() << " seconds.";
+		std::string output = oss.str();
+		output.resize(80, ' ');
+		std::clog << output << std::flush;
+
+		std::clog << "\n\nPress [ENTER] to close..." << std::endl;
+		std::cin.get();
 	}
 
 private:
