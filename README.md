@@ -1,13 +1,33 @@
-# Ray Tracing In A Weekend
+# Ray Tracing in a Weekend  
 ## A Simple Ray Tracing Renderer
 
-### Renders a collection of spheres to a .ppm file
+This is a basic ray tracer that renders a scene composed of spheres to a `.ppm` image file. It was built by following the excellent book [_Ray Tracing in One Weekend_](https://raytracing.github.io/books/RayTracingInOneWeekend.html).
 
-![Example Screenshot](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/200Samples1200w.png?raw=true)
-A render at 200 samples pre-optimizations (took about 15 minutes to render)
+### Features
+- Ray-sphere intersection
+- Multiple material types:
+  - Lambertian (diffuse)
+  - Metal
+  - Dielectric (glass, water, etc.)
+- Anti-aliasing via multiple samples per pixel
+- Depth of field
+- Motion blur
+- Bounding Volume Hierarchy (BVH) with Axis-Aligned Bounding Boxes (AABB)
+- Output to `.ppm` image format
 
-![Example Screenshot](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/500Samples1200w.png?raw=true)
-A render at 500 samples post-optimization (took about 5 minutes to render) (Motion blur also added to the render)
+### In-Progress Features
+- Texture mapping
+- Procedural noise (e.g., Perlin noise)
+- Support for additional geometric primitives (e.g., triangles, boxes)
+- Area and point lights
+- Volumetric rendering (e.g., fog, smoke)
 
-Made by following the book:
-[_Ray Tracing in One Weekend_](https://raytracing.github.io/books/RayTracingInOneWeekend.html)
+### Example Renders
+
+**200 Samples per Pixel (Pre-Optimization)**  
+_Render time: ~15 minutes_  
+![Pre-Optimization Render](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/200Samples1200w.png?raw=true)  
+
+**500 Samples per Pixel (Post-Optimization + Motion Blur)**  
+_Render time: ~5 minutes_  
+![Post-Optimization Render](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/500Samples1200w.png?raw=true) 
