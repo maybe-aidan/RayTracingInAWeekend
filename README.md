@@ -13,11 +13,11 @@ This is a basic ray tracer that renders a scene composed of spheres to a `.ppm` 
 - Depth of field
 - Motion blur
 - Bounding Volume Hierarchy (BVH) with Axis-Aligned Bounding Boxes (AABB)
+- Texture Mapping
+- Procedural Noise (e.g., Perlin noise)
 - Output to `.ppm` image format
 
 ### In-Progress Features
-- Texture mapping
-- Procedural noise (e.g., Perlin noise)
 - Support for additional geometric primitives (e.g., triangles, boxes)
 - Area and point lights
 - Volumetric rendering (e.g., fog, smoke)

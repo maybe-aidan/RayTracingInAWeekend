@@ -36,17 +36,19 @@ private:
 
 class metal : public material {
 public:
-	metal(const color& albedo, double roughness) : albedo(albedo), roughness(roughness < 1 ? roughness: 1) {}
+	metal(const color& albedo, double roughness) : tex(make_shared<solid_color>(albedo)), roughness(roughness < 1 ? roughness : 1) {}
+	metal(shared_ptr<texture> tex, double roughness) : tex(tex) {}
 
 	bool scatter(const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered) const override {
 		vec3 reflected = reflect(r_in.direction(), rec.normal);
 		reflected = unit_vector(reflected) + (roughness * random_unit_vector());
 		scattered = ray(rec.p, reflected, r_in.time());
-		attenuation = albedo;
+		attenuation = tex->value(rec.u, rec.v, rec.p);
 		return (dot(scattered.direction(), rec.normal) > 0);
 	}
 
 private:
+	shared_ptr<texture> tex;
 	color albedo;
 	double roughness;
 };

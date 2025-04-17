@@ -46,6 +46,7 @@ public:
 		rec.p = r.at(rec.t);
 		vec3 outward_normal = (rec.p - current_center) / radius;
 		rec.set_face_normal(r, outward_normal);
+		get_sphere_uv(outward_normal, rec.u, rec.v);
 		rec.mat = mat;
 
 		return true;
@@ -58,6 +59,29 @@ private:
 	double radius;
 	shared_ptr<material> mat;
 	aabb bbox; // Bounding box. These shortenend names won't get confusing at all ;)
+
+	static void get_sphere_uv(const point3& p, double& u, double& v) {
+		// Spherical Coordinates: (theta, phi)
+		// Theta is the vertical angle
+		// Phi is the horizontal angle
+		// 
+		// Normalized u v coordinates:
+		// u = phi / (2*pi)
+		// v = theta / pi
+		//
+		// phi traverse the full 360deg of a circle (2Pi radians) 
+		// whereas theta only covers a semicircle (pi radians)
+		// 
+		// Using some trigonometry:
+		// phi = atan2(-z, x) + pi
+		// theta = arccos(-y)
+
+		auto theta = std::acos(-p.y());
+		auto phi = std::atan2(-p.z(), p.x()) + pi;
+
+		u = phi / (2 * pi);
+		v = theta / pi;
+	}
 };
 
 #endif
