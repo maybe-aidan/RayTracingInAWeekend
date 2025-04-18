@@ -24,21 +24,32 @@ This is a basic ray tracer that renders a scene composed of spheres to a `.ppm` 
 
 ### Example Renders
 
-**200 Samples per Pixel (Pre-Optimization)**  
-_Render time: ~15 minutes_  
-![Pre-Optimization Render](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/200Samples1200w.png?raw=true)  
-
-**500 Samples per Pixel (Post-Optimization + Motion Blur)**  
-_Render time: ~5 minutes_   
-![Post-Optimization Render](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/500Samples1200w.png?raw=true) 
-
-**Cornell Box at 1000 Samples per Pixel**  
-_Render time: ~15 minutes_  
-![Cornell Box 1K Samples](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/cornell-box1000samples.png?raw=true)
-
-**Cornell Box at 10,000 Samples per Pixel (with a Glass Ball)**  
-_Render time: ~1 hour_  
-![Cornell Box 10k Samples](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/cornell10k.png?raw=true)
+<table>
+  <tr>
+    <td>
+      <strong>200 Samples per Pixel (Pre-Optimization)</strong><br>
+      <em>Render time: ~15 minutes</em><br>
+      <img src="https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/200Samples1200w.png?raw=true" width="100%">
+    </td>
+    <td>
+      <strong>500 Samples per Pixel (Post-Optimization + Motion Blur)</strong><br>
+      <em>Render time: ~5 minutes</em><br>
+      <img src="https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/500Samples1200w.png?raw=true" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Cornell Box at 1000 Samples per Pixel</strong><br>
+      <em>Render time: ~15 minutes</em><br>
+      <img src="https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/cornell-box1000samples.png?raw=true" width="100%">
+    </td>
+    <td>
+      <strong>Cornell Box at 10,000 Samples per Pixel (with a Glass Ball)</strong><br>
+      <em>Render time: ~1 hour</em><br>
+      <img src="https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/cornell10k.png?raw=true" width="100%">
+    </td>
+  </tr>
+</table>
 
 ### Build Instructions
 
