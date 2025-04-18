@@ -32,6 +32,14 @@ _Render time: ~15 minutes_
 _Render time: ~5 minutes_  
 ![Post-Optimization Render](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/500Samples1200w.png?raw=true) 
 
+**Cornell Box at 1000 Samples per Pixel**
+_Render time: ~15 minutes_
+![Cornell Box 1K Samples](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/cornell-box1000samples.png?raw=true)
+
+**Cornell Box at 10,000 Samples per Pixel (with a Glass Ball)**
+_Render time: ~1 hour_
+![Cornell Box 10k Samples](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/cornell10k.png?raw=true)
+
 ### Build Instructions
 
 This project is built using **Microsoft Visual Studio Community 2022**, Version **17.11.2**.

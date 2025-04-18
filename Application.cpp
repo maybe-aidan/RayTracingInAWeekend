@@ -220,16 +220,21 @@ void cornell_box() {
 	box1 = make_shared<translate>(box1, vec3(265, 0, 295));
 	world.add(box1);
 
+	/*
 	shared_ptr<hittable> box2 = box(point3(0, 0, 0), point3(165, 165, 165), white);
 	box2 = make_shared<rotate_y>(box2, -18);
 	box2 = make_shared<translate>(box2, vec3(130, 0, 65));
 	world.add(box2);
+	*/
+
+	auto glass = make_shared<dielectric>(1.53);
+	world.add(make_shared<sphere>(point3(150, 84, 120), 84, glass));
 
 	camera cam;
 
 	cam.aspect_ratio = 1.0;
 	cam.image_width = 600;
-	cam.samples_per_pixel = 200;
+	cam.samples_per_pixel = 10000;
 	cam.max_depth = 50;
 	cam.background = color(0, 0, 0);
 
