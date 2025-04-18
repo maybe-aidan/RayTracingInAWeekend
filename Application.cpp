@@ -5,8 +5,7 @@
 #include "hittable.h"
 #include "hittable_list.h"
 #include "material.h"
-#include "quad.h"
-#include "sphere.h"
+#include "primitives.h"
 #include "texture.h"
 
 // Made following "Ray Tracing in One Weekend"
@@ -96,10 +95,10 @@ void quads() {
 	auto lower_teal = make_shared<lambertian>(color(0.2, 0.8, 0.8));
 
 	world.add(make_shared<quad>(point3(-3, -2, 5), vec3(0, 0, -4), vec3(0, 4, 0), left_red));
-	world.add(make_shared<quad>(point3(-2, -2, 0), vec3(4, 0, 0), vec3(0, 4, 0), back_green));
+	world.add(make_shared<disk>(point3(0, 0, 0), vec3(4, 0, 0), vec3(0, 4, 0), 0.5, back_green));
 	world.add(make_shared<quad>(point3(3, -2, 1), vec3(0, 0, 4), vec3(0, 4, 0), right_blue));
 	world.add(make_shared<quad>(point3(-2, 3, 1), vec3(4, 0, 0), vec3(0, 0, 4), upper_orange));
-	world.add(make_shared<quad>(point3(-2, -3, 5), vec3(4, 0, 0), vec3(0, 0, -4), lower_teal));
+	world.add(make_shared<triangle>(point3(-2, -3, 5), vec3(4, 0, 0), vec3(0, 0, -4), lower_teal));
 
 	camera cam;
 
@@ -109,7 +108,7 @@ void quads() {
 	cam.max_depth = 50;
 
 	cam.vfov = 80;
-	cam.lookfrom = point3(0, 0, 9);
+	cam.lookfrom = point3(3, 3, 9);
 	cam.lookat = point3(0, 0, 0);
 	cam.vup = vec3(0, 1, 0);
 
