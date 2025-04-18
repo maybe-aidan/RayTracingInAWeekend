@@ -12,6 +12,7 @@ This is a basic ray tracer that renders a scene composed of spheres to a `.ppm` 
 - Texture Mapping
 - Procedural Noise (e.g., Perlin noise)
 - Support for additional geometric primitives (e.g., triangles, quads)
+- Emissive materials (lights)
 - Anti-aliasing via multiple samples per pixel
 - Depth of field
 - Motion blur
@@ -19,7 +20,6 @@ This is a basic ray tracer that renders a scene composed of spheres to a `.ppm` 
 - Output to `.ppm` image format
 
 ### In-Progress Features
-- Area and point lights
 - Volumetric rendering (e.g., fog, smoke)
 
 ### Example Renders
