@@ -31,3 +31,19 @@ _Render time: ~15 minutes_
 **500 Samples per Pixel (Post-Optimization + Motion Blur)**  
 _Render time: ~5 minutes_  
 ![Post-Optimization Render](https://github.com/maybe-aidan/RayTracingInAWeekend/blob/master/res/500Samples1200w.png?raw=true) 
+
+### Build Instructions
+
+This project is built using **Microsoft Visual Studio Community 2022**, Version **17.11.2**.
+
+### Steps:
+1. Clone or download the repository.
+2. Open the `.sln` file in Visual Studio.
+3. Ensure the build configuration is set to `Release` or `Debug` as desired.
+4. Under `Configuration Properties > Debugging > Command Arguments` add the following arguments:
+<pre> > image.ppm </pre>
+5. Build and Run the project (`Ctrl + F5` or click `Local Windows Debugger`).
+
+### Dependencies
+- [`stb_image`](https://github.com/nothings/stb): Header-only image loading library  
+  (already included in the project, no setup required)
